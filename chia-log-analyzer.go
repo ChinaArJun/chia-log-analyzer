@@ -112,27 +112,28 @@ func main() {
 
 	widgetTotalFarmingPlotsNumber = widgets.NewParagraph()
 	widgetTotalFarmingPlotsNumber.SetRect(18, 0, 37, smallWidgetHeight)
-	widgetTotalFarmingPlotsNumber.Title = "Farming attempts"
+	widgetTotalFarmingPlotsNumber.Title = "耕种尝试"
 	ui.Render(widgetTotalFarmingPlotsNumber)
 
 	widgetLastFarmingTime = widgets.NewParagraph()
 	widgetLastFarmingTime.SetRect(37, 0, 77, smallWidgetHeight)
-	widgetLastFarmingTime.Title = "Farming times (last/min/avg/max)"
+	widgetLastFarmingTime.Title = "耕作时间（最后/最小/平均/最大）"
 	ui.Render(widgetLastFarmingTime)
 
 	widgetOverallHealthPercent = widgets.NewParagraph()
-	widgetOverallHealthPercent.Title = "Overall farming health indicator"
+	widgetOverallHealthPercent.Title = "总体农业健康指标"
 	widgetOverallHealthPercent.SetRect(77, 0, 119, smallWidgetHeight)
 	widgetOverallHealthPercent.TextStyle.Fg = ui.ColorCyan
 	widgetOverallHealthPercent.Text = "?? %"
 
 	widgetLog = widgets.NewParagraph()
 	widgetLog.SetRect(0, 15, 119, smallWidgetHeight)
-	widgetLog.Title = "Last farming"
+	widgetLog.Title = "最后耕作"
 	ui.Render(widgetLog)
 
 	widgetBarChart = widgets.NewBarChart()
 	widgetBarChart.Title = "Plots eligible for farming - last 59 values"
+	widgetBarChart.Title = "适合耕种的地块 - 最后 59 个值"
 	widgetBarChart.SetRect(0, 15, 119, 25)
 	widgetBarChart.BarWidth = 3
 	widgetBarChart.BarGap = 1
@@ -144,9 +145,11 @@ func main() {
 	widgetBarChartParagraph = widgets.NewParagraph()
 	widgetBarChartParagraph.SetRect(0, 15, 119, 25) //same as above
 	widgetBarChartParagraph.Title = "Not engough data or zero values"
+	widgetBarChartParagraph.Title = "数据不足或零值"
 
 	widgetBarChart2 = widgets.NewPlot()
 	widgetBarChart2.Title = "Farming times (axis Y in seconds) - last 113 values"
+	widgetBarChart2.Title = "耕作时间（以秒为单位的 Y 轴）- 最后 113 个值"
 	widgetBarChart2.Data = make([][]float64, 1)
 	widgetBarChart2.SetRect(0, 25, 119, 35)
 	widgetBarChart2.AxesColor = ui.ColorWhite
@@ -157,14 +160,17 @@ func main() {
 	widgetBarChart2Paragraph = widgets.NewParagraph()
 	widgetBarChart2Paragraph.SetRect(0, 25, 119, 35) //same as above
 	widgetBarChart2Paragraph.Title = "Not engough data or zero values"
+	widgetBarChart2Paragraph.Title = "数据不足或零值"
 
 	widgetSparklines = widgets.NewSparkline()
 	widgetSparklines.Title = "1 col = 10 minutes block. It could be about 64 reqs/ 10minutes. Chart could be almost flat (+/-1 height block)"
+	widgetSparklines.Title = "1 col = 10 分钟块。 它可能是大约 64 个请求/10 分钟。 图表可能几乎平坦（+/-1 高度块）"
 	widgetSparklines.LineColor = ui.ColorBlue
 	widgetSparklines.TitleStyle.Fg = ui.ColorWhite
 
 	widgetSparklinesGroup = widgets.NewSparklineGroup(widgetSparklines)
 	widgetSparklinesGroup.Title = "Health indicator - number of incoming farming requests from the Chia network"
+	widgetSparklinesGroup.Title = "健康指标 - 来自 Chia 网络的传入农业请求的数量"
 	widgetSparklinesGroup.SetRect(0, 35, 119, 45)
 
 	go loopReadFile()
