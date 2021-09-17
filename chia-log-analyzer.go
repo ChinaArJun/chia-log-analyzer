@@ -84,7 +84,7 @@ func (stack *stackStructFloats) push(value float64) {
 	}
 }
 
-var lastParsedLinesStack = stackStruct{count: 5}
+var lastParsedLinesStack = stackStruct{count: 12}
 var lastFarmStack = stackStructFloats{count: 29}
 var lastFarmingTimesStack = stackStructFloats{count: 113}
 
@@ -234,7 +234,7 @@ func detectLogFileLocation() {
 	}
 
 	if missingLogFile == true {
-		fmt.Println("Please specify path to the log file, with parameter: log (--log=/path/to/debug.log)")
+		fmt.Println("Please specify path to the log file, with parameter: log (--log=/path/to/debug.log), err path ",debuglogFile)
 		os.Exit(0)
 	}
 }
